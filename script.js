@@ -1,5 +1,13 @@
+const gridSlider = document.getElementById('gridSize');
+generateGrid('16');
+gridSlider.oninput = function () {
+    gridSize = this.value;
+    generateGrid(gridSize);
+}
+
 function generateGrid(columns) {
     const frame = document.getElementById('frame')
+    frame.innerHTML = ""
     for (let i = 0; i < columns; i++) {
         const row = document.createElement('div');
         let rowNum = `row${i + 1}`
@@ -14,7 +22,7 @@ function generateGrid(columns) {
         }
     }
 }
-generateGrid('16');
+// 
 
 const boxes = document.querySelectorAll('.column');
 
