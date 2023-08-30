@@ -58,10 +58,6 @@ body{
 }
 .column{
     width: 100%;
-    background-color: rgb(255,255,255);
-}
-.black{
-    background-color: black;
 }
 .active{
     background: brown;
