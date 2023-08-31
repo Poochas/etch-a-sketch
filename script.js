@@ -1,7 +1,7 @@
 const gridSlider = document.getElementById('gridSize');
 const gridSliderValue = document.getElementById('gridSliderValue');
 const buttons = document.querySelectorAll('button');
-const touch = document.querySelectorAll('.touch');
+const navigationButtons = document.querySelectorAll('#navigation button')
 let activeButton = document.querySelector('.active');
 
 generateGrid();

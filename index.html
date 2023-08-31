@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <title>Etch A Sketch</title>
 </head>
@@ -15,13 +18,14 @@
   <div class="menu">
     <input type="range" name="gridSize" id="gridSize" min="16" max="64" value="16" aria-labelledby="gridSize">
     <p>Grid size: <span id="gridSliderValue">16x16</span></p>
-    <!-- <label for="gridSize">Grid size: <span id="gridSliderValue"></span></label> -->
-    <button class="pencil active" id="paint">Paint</button>
-    <button class="pencil" id="erase">Erase</button>
-    <button class="pencil" id="lighten">Lighten</button>
-    <button class="pencil" id="darken">Darken</button>
-    <button class="pencil" id="rainbow">Rainbow</button>
-    <button id="clear">Clear</button>
+    <div class="buttons">
+      <button class="pencil active" id="paint">Paint</button>
+      <button class="pencil" id="erase">Erase</button>
+      <button class="pencil" id="lighten">Lighten</button>
+      <button class="pencil" id="darken">Darken</button>
+      <button class="pencil" id="rainbow">Rainbow</button>
+      <button id="clear">Clear</button>
+    </div>
   </div>
 </body>
 

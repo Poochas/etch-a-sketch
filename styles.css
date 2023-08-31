@@ -4,13 +4,51 @@ body{
     align-items: center;
     flex-direction: column;
     background-color: rgb(218, 218, 218);
+    font-family: 'VT323', monospace;
+}
+button{
+    font-family: 'VT323', monospace;
+    font-size: 1.5em;
+    color: rgb(245, 137, 69);
+    border: 3px solid black;
+    border-radius: 3pt;
+}
+p{
+    margin: 0.5em;
+    font-size: 2em;
+    text-align: center;
+  }
+.buttons{
+    height: 2em;
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+.row{
+    height: 100%;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+.column{
+    width: 100%;
+}
+
+.active{
+    background: #04AA6D;
+    color: darkslateblue;
+}
+
+#navigation{
+    margin-top: 1em;
 }
 #frame{
     aspect-ratio: 1/1;
-    height: 350px;
+    width: 90vw;
+    max-width: 700px;
     border: 2px solid black;
     background-color: white;
-    /* flex-wrap: wrap; */
     display: flex;
     flex-direction: column;
 }
@@ -34,8 +72,8 @@ body{
     appearance: none;
     width: 25px;
     height: 25px;
-    border-radius: 50%; 
-    background: #0f04aa;
+    border-radius: 5pt; 
+    background: rgb(245, 137, 69);
     cursor: pointer;
   }
   #gridSize::-moz-range-thumb {
@@ -45,20 +83,3 @@ body{
     background: #04AA6D;
     cursor: pointer;
   }
-
-  p{
-    margin-top: 0.5em;
-    text-align: center;
-  }
-.row{
-    height: 100%;
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-}
-.column{
-    width: 100%;
-}
-.active{
-    background: brown;
-}
