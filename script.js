@@ -2,8 +2,10 @@ const gridSlider = document.getElementById('gridSize');
 const gridSliderValue = document.getElementById('gridSliderValue');
 const buttons = document.querySelectorAll('button');
 const navigationButtons = document.querySelectorAll('#navigation button')
+let mouseDown = false;
 let activeButton = document.querySelector('.active');
-
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 generateGrid();
 events();
 gridSlider.oninput = function () {
@@ -48,30 +50,33 @@ buttons.forEach((button) => {
 function events() {
     const boxes = document.querySelectorAll('.column');
     boxes.forEach((box) => {
-        box.addEventListener('mouseenter', () => {
-            let action = activeButton != null ? activeButton.id : null
-            switch (action) {
-                case 'paint':
-                    box.style.backgroundColor = 'rgb(0, 0, 0)';
-                    break;
-                case 'erase':
-                    box.style.backgroundColor = 'rgb(255, 255, 255)';
-                    break;
-                case 'rainbow':
-                    box.style.backgroundColor = randomColor();
-                    break;
-                case 'lighten':
-                    box.style.backgroundColor = (lightenColor(box.style.backgroundColor))
-                    break;
-                case 'darken':
-                    box.style.backgroundColor = (darkenColor(box.style.backgroundColor))
-                    break;
-            }
-        })
-
+        box.addEventListener('mousedown', paint)
+        box.addEventListener('mouseover', paint)
     })
 }
 
+function paint(e) {
+    let box = e.currentTarget
+    if (e.type === 'mouseover' && !mouseDown) return
+    let action = activeButton != null ? activeButton.id : null
+    switch (action) {
+        case 'paint':
+            box.style.backgroundColor = 'rgb(0, 0, 0)';
+            break;
+        case 'erase':
+            box.style.backgroundColor = 'rgb(255, 255, 255)';
+            break;
+        case 'rainbow':
+            box.style.backgroundColor = randomColor();
+            break;
+        case 'lighten':
+            box.style.backgroundColor = (lightenColor(box.style.backgroundColor))
+            break;
+        case 'darken':
+            box.style.backgroundColor = (darkenColor(box.style.backgroundColor))
+            break;
+    }
+}
 function randomColor() {
     return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
 }
